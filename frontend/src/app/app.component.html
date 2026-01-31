@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Yellow Todo App</h1>
+
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Add a new todo..." [(ngModel)]="newTodo">
+    <button class="btn btn-primary" (click)="addTodo()">Add</button>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos">
+      <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+      <span [ngClass]="{'completed': todo.completed}">{{ todo.task }}</span>
+      <button class="btn btn-danger btn-sm float-right" (click)="deleteTodo(todo)">Delete</button>
+    </li>
+  </ul>
+</div>
